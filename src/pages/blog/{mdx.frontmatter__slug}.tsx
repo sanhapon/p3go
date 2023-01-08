@@ -12,13 +12,13 @@ interface Data {
 };
 
 const BlogPost = (props: { data : Data, children }) => {
-  console.log(props)
   return (
     <Layout title={props.data.mdx.frontmatter.title}>
       <h2>{props.data.mdx.frontmatter.title}</h2>
-      <MDXProvider>
+
+      <article className={style.content}>
         {props.children}
-      </MDXProvider>
+      </article>
     </Layout>
   )
 }
