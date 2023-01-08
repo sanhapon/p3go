@@ -6,6 +6,7 @@ import { BlogData } from "../model/blogData"
 
 import * as style from "./index.module.css"
 import BlogCard from "../components/blogCard"
+import Seo from "../components/seo"
 
 interface AllMdx {
   nodes: BlogData[];
@@ -32,7 +33,7 @@ const IndexPage = (props: {data: Data}) => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>p3go.com</title>
+export const Head: HeadFC = () => <Seo title="Home Page" />
 
 export const query = graphql`
   query {

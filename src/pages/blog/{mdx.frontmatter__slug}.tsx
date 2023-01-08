@@ -5,6 +5,7 @@ import Blog from "../../components/Blog"
 import { BlogData } from "../../model/blogData"
 
 import * as style from "./blogpost.module.css"
+import Seo from "../../components/seo"
 
 interface Data {
   mdx: BlogData;
@@ -43,5 +44,7 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = (props: { data: Data }) => <Seo title={props.data.mdx.frontmatter.title} />
 
 export default BlogPost;
