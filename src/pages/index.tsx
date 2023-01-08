@@ -1,14 +1,38 @@
 import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
+import { HeadFC, Link, PageProps, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Blog from "../components/Blog"
+import { BlogData } from "../model/blogData"
 
-const IndexPage: React.FC<PageProps> = () => {
+import * as style from "./index.module.css"
+
+interface AllMdx {
+  nodes: BlogData[];
+};
+
+interface Data {
+  allMdx: AllMdx;
+};
+
+const IndexPage = (props: {data: Data}) => {
+  
   return (
     <Layout title="www.p3go.com">
-      <Blog excerpt={"p3go.com เรารวบรวมสาระน่ารู้เกี่ยวกับรถ ที่เราทุกคนควรรู้ กฎจราจรที่เกี่ยวข้อง เทรนด์ในอนาคต รวมถึงเปรียบเทียบราคาประกันจาก website ต่างๆ ให้ได้ราคาที่ดีที่สุด"}></Blog>
-
-      <Blog excerpt={"ในปัจจุบันอายุยางรถยนต์จะอยู่ที่ 2-5 ปี หรือ 30,000 – 40,000 กิโลเมตร ซึ่งจะขึ้นอยู่กับการใช้งาน หากมีการใช้งานรถหนักมากเกินไป เช่น การต้องบรรทุกของหนักเป็นประจำ หรือใช้รถเดินทางต่างจังหวัดบ่อย ๆ ผู้ใช้รถควรต้องมีการเช็คยางรถยนต์ อย่างน้อยปีละหนึ่งครั้ง "}></Blog>
+      <>
+      {
+        props.data.allMdx.nodes.map((node: BlogData) => (
+          <article key={node.id} className={style.artile}>
+            <h5>{node.frontmatter.title}</h5>
+            <p>
+                {node.body.substring(1, 500)}
+                <Link to={`/blog/${node.frontmatter.slug}`}> ...more</Link>
+            </p>
+            <p>Posted: {node.frontmatter.date}</p>
+            <hr />
+        </article>
+        ))
+      }
+      </>
     </Layout>
   )
 }
@@ -16,3 +40,20 @@ const IndexPage: React.FC<PageProps> = () => {
 export default IndexPage
 
 export const Head: HeadFC = () => <title>p3go.com</title>
+
+export const query = graphql`
+  query {
+    allMdx(sort: { frontmatter: { date: DESC } }) {
+      nodes {
+        frontmatter {
+          title
+          date(formatString: "MMMM D, YYYY")
+          slug
+        }
+        id
+        excerpt
+        body
+      }
+    }
+  }
+`

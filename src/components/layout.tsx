@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as style from './layout.module.css'
 
-const Layout = ( props: {title: string, children?: JSX.Element} ) => {
+const Layout = ( props: {title: string, children: JSX.Element} ) => {
     return (
         <div>
             <div className={style.banner}>
@@ -14,6 +14,6 @@ const Layout = ( props: {title: string, children?: JSX.Element} ) => {
       )
 }
 
-export const Head = () => <title>ประกันรถ</title>
+export const Head = (props: any) => <title>p3go.com | {props?.data?.mdx?.frontmatter?.title ?? ''} </title>
 
 export default Layout

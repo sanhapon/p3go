@@ -25,7 +25,21 @@ const config: GatsbyConfig = {
         "name": "files",
         "path": `${__dirname}/files`,
       },
-  }
+  },
+  {
+    resolve: "gatsby-plugin-excerpts",
+    options: {
+        "sources": {
+            "default": {
+                "truncate": {
+                    "length": 3,
+                    "byWords": true,
+                    "ellipsis": "…"
+                },
+            }
+        },
+    },
+  },
 ]
 };
 

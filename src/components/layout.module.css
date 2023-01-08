@@ -2,7 +2,7 @@
 @value site-bg, menu-bg, font-color-1 from variables;
 
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -22,7 +22,7 @@ time, mark, audio, video {
   font-weight: 600;
   vertical-align: baseline;
   box-sizing: border-box;
-  line-height: 1.5rem;
+  line-height: 1.7rem;
   text-align: initial;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
