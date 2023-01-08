@@ -45,6 +45,11 @@ export const query = graphql`
   }
 `
 
-export const Head = (props: { data: Data }) => <Seo title={props.data.mdx.frontmatter.title} />
+export const Head = (props: { data: Data }) => 
+  <Seo 
+    title={props.data.mdx.frontmatter.title}
+    keywords={props.data.mdx.frontmatter.keywords}
+    description={props.data.mdx.frontmatter.description}
+    />
 
 export default BlogPost;

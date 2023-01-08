@@ -33,7 +33,12 @@ const IndexPage = (props: {data: Data}) => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <Seo title="Home Page" />
+export const Head: HeadFC = () => 
+  <Seo 
+    title="Home Page"
+    keywords="รถยนตร์, รถไฟฟ้า"
+    description="เว็บเรารวบรวม เรื่องต่างๆ ที่น่าสนใจ เกียวกับรถยนตร์และรถไฟฟ้า เพื่อเป็นประโยชน์กับ รถรักรถทั่วไป"
+  />
 
 export const query = graphql`
   query {
