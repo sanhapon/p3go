@@ -24,7 +24,7 @@ const IndexPage = (props: {data: Data}) => {
           <article key={node.id} className={style.artile}>
             <h5>{node.frontmatter.title}</h5>
             <p>
-                {node.body.substring(1, 500)}
+                {node.excerpt}
                 <Link to={`/blog/${node.frontmatter.slug}`}> ...more</Link>
             </p>
             <p>Posted: {node.frontmatter.date}</p>
