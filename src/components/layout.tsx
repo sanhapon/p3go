@@ -3,7 +3,11 @@ import * as style from './layout.module.css'
 import { Link } from 'gatsby'
 import Footer from './footer'
 
-const Layout = ( props: {title: string, category: string, children: JSX.Element} ) => {
+const Layout = (
+    props: {title: string, category: string, children: JSX.Element, isHome: boolean}
+) => {
+    const containerClassName = style.container + " " + (props.isHome? style.containerHome : style.containerBlog);
+
     return (
         <>
             <div className={style.header}>
@@ -12,7 +16,7 @@ const Layout = ( props: {title: string, category: string, children: JSX.Element}
                     <span className={style.headerSiteName}>p3go.com</span>
                 </Link>
             </div>
-            <div className={style.container}>
+            <div className={containerClassName}>
                 <div className={style.content}>
                     <main>
                         {props.children}

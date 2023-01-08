@@ -6,9 +6,16 @@
 }
 
 .container {
-    width: 90%;
     margin: 0 auto;
     margin-top: 1.5rem;
+}
+
+.container-home {
+    width: 90%;
+}
+
+.container-blog {
+    width: 70%;
 }
 
 .content {
