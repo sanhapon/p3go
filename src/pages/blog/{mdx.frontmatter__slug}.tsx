@@ -1,5 +1,5 @@
 import * as React from "react"
-import { HeadFC, PageProps, graphql } from "gatsby"
+import { HeadFC, Link, PageProps, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import Blog from "../../components/Blog"
 import { BlogData } from "../../model/blogData"
@@ -21,6 +21,10 @@ const BlogPost = (props: { data : Data, children: any }) => {
         <article className={style.content}>
           {props.children}
         </article>
+
+        <Link to='/'>
+            <span className={style.backHome}>ไปหน้าแรก</span>
+        </Link>
       </>
     </Layout>
   )
