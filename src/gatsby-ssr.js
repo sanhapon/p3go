@@ -10,12 +10,5 @@ export const onRenderBody = ({ setHeadComponents }) => {
       crossOrigin="anonymous"
       key="interFont"
     />,
-
-    <link
-      rel="preload"
-      href="/stylesheets/global.css"
-      crossOrigin="anonymous"
-      key="globalCSS"
-  />,
   ])
 }
