@@ -5,20 +5,23 @@ import Blog from "../../components/Blog"
 import { BlogData } from "../../model/blogData"
 
 import * as style from "./blogpost.module.css"
-import { MDXProvider } from "@mdx-js/react"
 
 interface Data {
   mdx: BlogData;
 };
 
-const BlogPost = (props: { data : Data, children }) => {
+const BlogPost = (props: { data : Data, children: any }) => {
   return (
-    <Layout title={props.data.mdx.frontmatter.title}>
-      <h2>{props.data.mdx.frontmatter.title}</h2>
+    <Layout 
+        title={props.data.mdx.frontmatter.title}
+        category={props.data.mdx.frontmatter.category}>
+      <>
+        <h2>{props.data.mdx.frontmatter.title}</h2>
 
-      <article className={style.content}>
-        {props.children}
-      </article>
+        <article className={style.content}>
+          {props.children}
+        </article>
+      </>
     </Layout>
   )
 }
@@ -29,6 +32,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM D, YYYY")
+        category
       }
       body
     }

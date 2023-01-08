@@ -8,29 +8,35 @@
 .container {
     width: 70%;
     margin: 0 auto;
+    margin-top: 1.5rem;
 }
 
 .content {
     background-color: site-bg;
-    padding: 20px;
 }
 
-.banner {
-    height: 60px;
-    color: font-color-1;
+.header {
+    padding-left: 1.5rem;
     background-color: menu-bg;
     display: flex;
-    align-content: flex-start;
     align-items: center;
-    font-family: 'sans-serif';
+    align-content: flex-start;
+    height: 70px;  
+}
+
+
+.header-link {
+    color: font-color-1;
+    font-family: sans-serif;
     font-weight: bold;
-    font-size: 1.3rem;
-    padding-left: 15px;
-    
+    font-size: 1.8rem;
 }
 
 @media only screen and (max-width: 600px) { 
     .container {
         width: 100%;
+    }
+    .content {
+        padding: 0 1.2rem 0 1.2rem;
     }
 }
