@@ -18,7 +18,7 @@ interface Data {
 const IndexPage = (props: {data: Data}) => {
   
   return (
-    <Layout title="www.p3go.com" category={"home"} isHome={true}>
+    <Layout title="home" category={"home"} isHome={true}>
       <div className={style.cardContainer}>
         {props.data.allMdx.nodes.map((node: BlogData, index: number) => 
           <div className={style.cardItem}>

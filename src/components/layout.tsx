@@ -23,7 +23,7 @@ const Layout = (
                     </main>
                 </div>
             </div>
-            <Footer category={props.category}/>
+            <Footer title={props.title}/>
         </>
       )
 }

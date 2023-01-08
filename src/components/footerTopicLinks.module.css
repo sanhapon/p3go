@@ -1,0 +1,42 @@
+@value variables: '../variables.css';
+@value background-0 from variables;
+
+.topicPanel {
+    background-color: background-0;
+    padding-bottom: 20px;
+}
+
+.footerLinksTopic {
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+    font-weight: 700;
+}
+
+.footer-links-wrapper1 {
+    margin-top: 20px;
+}
+
+.footer-links-wrapper2 {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+}
+
+.footer-link {
+    width: 25%;
+    font-size: 0.8rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .footer-links-wrapper2 {
+        margin-left: 50px;
+    } 
+    .footer-link {
+        width: 50%;
+    }
+}
