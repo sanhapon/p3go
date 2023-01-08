@@ -10,37 +10,55 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
+    "gatsby-plugin-mdx-frontmatter",
     "gatsby-plugin-sass",
     "gatsby-plugin-google-gtag",
-    "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-mdx",
-    "gatsby-plugin-mdx-frontmatter",
-    "gatsby-transformer-remark",
+    {
+      resolve: "gatsby-plugin-excerpts",
+      options: {
+          "sources": {
+              "default": {
+                  "truncate": {
+                      "length": 3,
+                      "byWords": true,
+                      "ellipsis": "…"
+                  },
+              }
+          },
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "files",
-        "path": `${__dirname}/files`,
+        path: `${__dirname}/files/blog`,
       },
-  },
-  {
-    resolve: "gatsby-plugin-excerpts",
-    options: {
-        "sources": {
-            "default": {
-                "truncate": {
-                    "length": 3,
-                    "byWords": true,
-                    "ellipsis": "…"
-                },
-            }
-        },
     },
-  },
-]
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          'gatsby-remark-images',
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+            },
+          },
+        ],
+      },
+    },
+  ]
 };
 
 export default config;
