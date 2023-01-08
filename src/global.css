@@ -40,7 +40,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-  /* font-family: 'Sarabun', sans-serif; */
+  font-family: 'Sarabun', sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
 }

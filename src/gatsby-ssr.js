@@ -10,5 +10,7 @@ export const onRenderBody = ({ setHeadComponents }) => {
       crossOrigin="anonymous"
       key="interFont"
     />,
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
   ])
 }

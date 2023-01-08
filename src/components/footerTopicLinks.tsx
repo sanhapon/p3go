@@ -36,9 +36,9 @@ const FooterTopicLinks = (props: {title: string}) => {
             <span className={style.footerLinksTopic}>เรื่องอื่นๆ ที่น่าสนใจ</span>
             <div className={style.footerLinksWrapper1}>
                 <div className={style.footerLinksWrapper2}>
-                    {data.allMdx.nodes.map(item =>
+                    {data.allMdx.nodes.map((item, ind) =>
                         { return item.frontmatter.title !== props.title && 
-                            <Link  className={style.footerLink} to={`/blog/${item.frontmatter.slug}`}>
+                            <Link key={ind} className={style.footerLink} to={`/blog/${item.frontmatter.slug}`}>
                                 {item.frontmatter.title}
                             </Link>
                         }

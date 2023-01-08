@@ -15,7 +15,6 @@ const Seo = (props: {title: string, keywords?: string, description?: string }) =
   return (
     <>
         <title>{props.title} | {data.site.siteMetadata.title}</title>
-        <meta http-equiv="content-language" content="th"></meta>
         {props.keywords && 
             <meta name="keywords" content={props.keywords}></meta>
         }

@@ -22,7 +22,7 @@ const IndexPage = (props: {data: Data}) => {
     <Layout title="home" category={"home"} isHome={true}>
       <div className={style.cardContainer}>
         {props.data.allMdx.nodes.map((node: BlogData, index: number) => 
-          <div className={style.cardItem}>
+          <div key={index} className={style.cardItem}>
             <BlogCard data={node} index={index}></BlogCard>
           </div>
         )}

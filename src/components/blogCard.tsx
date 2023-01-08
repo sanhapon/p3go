@@ -7,7 +7,6 @@ import { Link } from "gatsby";
 const BlogCard = (props: { data : BlogData, index: number }) => {
     const pic = props.data.frontmatter.mainPicture ?? `../../images/default/unsplash-${(props.index % 7) + 1}.jpg`;
 
-    console.log('xx-> ' + props.data.frontmatter.mainPicture)
     return (
         <article key={props.data.id} className={style.article}>
             <img className={style.picture} src={pic} alt={props.data.frontmatter.title}></img>
