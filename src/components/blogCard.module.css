@@ -1,0 +1,18 @@
+.article {
+    max-height: 660px;
+    /* min-width: 500px; */
+    padding-bottom: 50px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    margin: auto;
+}
+.picture {
+    width: 100%;
+    padding: 20px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.excerpt {
+    display: block;
+    padding: 5px 20px;
+}

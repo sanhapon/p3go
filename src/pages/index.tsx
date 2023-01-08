@@ -5,6 +5,7 @@ import Blog from "../components/Blog"
 import { BlogData } from "../model/blogData"
 
 import * as style from "./index.module.css"
+import BlogCard from "../components/blogCard"
 
 interface AllMdx {
   nodes: BlogData[];
@@ -17,22 +18,14 @@ interface Data {
 const IndexPage = (props: {data: Data}) => {
   
   return (
-    <Layout title="www.p3go.com">
-      <>
-      {
-        props.data.allMdx.nodes.map((node: BlogData) => (
-          <article key={node.id} className={style.artile}>
-            <h5>{node.frontmatter.title}</h5>
-            <p>
-                {node.excerpt}
-                <Link to={`/blog/${node.frontmatter.slug}`}> ...more</Link>
-            </p>
-            <p>Posted: {node.frontmatter.date}</p>
-            <hr />
-        </article>
-        ))
-      }
-      </>
+    <Layout title="www.p3go.com" category={"home"}>
+      <div className={style.cardContainer}>
+        {props.data.allMdx.nodes.map((node: BlogData, index: number) => 
+          <div className={style.cardItem}>
+            <BlogCard data={node} index={index}></BlogCard>
+          </div>
+        )}
+      </div>
     </Layout>
   )
 }
@@ -52,7 +45,7 @@ export const query = graphql`
           category
         }
         id
-        excerpt
+        excerpt(pruneLength: 300)
         body
       }
     }

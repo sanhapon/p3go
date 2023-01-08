@@ -6,8 +6,7 @@
 }
 
 .container {
-    width: 70%;
-    max-width: 60rem;
+    width: 90%;
     margin: 0 auto;
     margin-top: 1.5rem;
 }
@@ -49,6 +48,9 @@
 @media only screen and (max-width: 600px) {
     .header {
         padding-left: 0px;
+    }
+    .header-link {
+        margin-left: -10px;
     }
     .container {
         width: 100%;

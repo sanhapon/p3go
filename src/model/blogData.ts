@@ -4,6 +4,7 @@ export interface Frontmatter {
     date: string,
     slug: string,
     category: string,
+    mainPicture?: string,
 }
 export interface BlogData {
     id: string,
