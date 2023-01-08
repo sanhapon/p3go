@@ -7,7 +7,10 @@ const Layout = ( props: {title: string, category: string, children: JSX.Element}
     return (
         <>
             <div className={style.header}>
-                <Link className={style.headerLink}to="/">p3go.com</Link>
+                <Link className={style.headerLink} to="/">
+                    <img className={style.headerLogo} src="/images/logo_notext_transparent.png" alt="p3go.com logo" />
+                    <span className={style.headerSiteName}>p3go.com</span>
+                </Link>
             </div>
             <div className={style.container}>
                 <div className={style.content}>

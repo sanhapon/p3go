@@ -40,7 +40,7 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   font-family: 'Sarabun', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 

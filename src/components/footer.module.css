@@ -1,0 +1,10 @@
+@value variables: '../variables.css';
+@value background-3, font-color-2 from variables;
+
+
+.footer-about {
+    margin-top: 50px;
+    height: 400px;
+    background-color: background-3;
+    color: font-color-2;
+}

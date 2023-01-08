@@ -33,18 +33,35 @@ const Footer = (props: {category: string}) => {
 
     return (
         <>
-            <div>Footer: {props.category}</div>
-            
-            <ul>
-                {data.allMdx.nodes.map(item =>
-                    <li key={item.id}>
-                        <Link to={`/blog/${item.frontmatter.slug}`}>
-                                {item.frontmatter.title}
-                        </Link>
-                    </li>
-                )}
-            </ul>
-             <hr />
+            <div className={style.footerAbout}>
+                <div>
+                    logo
+                </div>
+                <div>
+                    Term and condition
+                </div>
+                <div>
+                    Privacy Policy
+                </div>
+                <div>
+                    Contact addreess (email)
+                </div>
+                <div>
+                    Links
+                </div>            
+            </div>
+            <div>
+                <ul>
+                    {data.allMdx.nodes.map(item =>
+                        <li key={item.id}>
+                            <Link to={`/blog/${item.frontmatter.slug}`}>
+                                    {item.frontmatter.title}
+                            </Link>
+                        </li>
+                    )}
+                </ul>
+            </div>
+
         </>
     );
 }
