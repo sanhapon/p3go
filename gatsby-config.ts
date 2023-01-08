@@ -58,6 +58,31 @@ const config: GatsbyConfig = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          '/**/*.html': [
+            'cache-control: public, max-age=0, must-revalidate',
+          ],
+          '/**/*.json': [
+            'cache-control: public, max-age=0, must-revalidate',
+          ],
+          '/**/*.js': [
+            'cache-control: public, max-age=31536000, immutable',
+          ],
+          '/**/*.css': [
+            'cache-control: public, max-age=31536000, immutable',
+          ],
+          '/images/**/*.jpg': [
+            'cache-control: public, max-age=31536000, immutable',
+          ],
+          '/fonts/**/*.ttf': [
+            'cache-control: public, max-age=31536000, immutable',
+          ],
+        },
+      },
+    },
   ]
 };
 
