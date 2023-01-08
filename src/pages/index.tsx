@@ -43,6 +43,7 @@ export const query = graphql`
           date(formatString: "MMMM D, YYYY")
           slug
           category
+          mainPicture
         }
         id
         excerpt(pruneLength: 300)
