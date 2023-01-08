@@ -2,9 +2,57 @@
 @value background-3, font-color-2 from variables;
 
 
-.footer-about {
+.footer-container {
     margin-top: 50px;
-    height: 400px;
+    height: 300px;
     background-color: background-3;
     color: font-color-2;
+    
+}
+
+.footer-wrapper {
+    display: flex;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.footer-logo {
+    width: 30%;
+}
+
+.footer-logo img {
+    float: right;
+    width: 150px;
+}
+
+.footer-link-panel {
+    width: 70%;
+    display: flex;
+}
+
+.footer-link-panel ul {
+    list-style: none;
+    margin-left: 20px;
+}
+
+.footer-link-panel span {
+    margin-left: 200px;
+}
+
+@media only screen and (max-width: 600px) { 
+
+    .footer-wrapper {
+        align-items: center;
+        margin-left: 50px;
+    }
+
+    .footer-link-panel {
+        flex-direction: column;;
+    }
+    
+    .footer-link-panel span {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    
 }

@@ -33,24 +33,25 @@ const Footer = (props: {category: string}) => {
 
     return (
         <>
-            <div className={style.footerAbout}>
-                <div>
-                    logo
+            <div className={style.footerContainer}>
+                <div className={style.footerWrapper}>
+                    <div className={style.footerLogo}>
+                        <img
+                            src="/images/logo_transparent.png" alt="p3go logo"></img>
+                    </div>
+                    <div className={style.footerLinkPanel}>
+                        <ul>
+                            <li>Term and condition</li>
+                            <li>Privacy Policy</li>
+                            <li>About us</li>
+                        </ul>
+                        <span>
+                            Contact address: sanhapon@yahoo.com
+                        </span>
+                    </div>
                 </div>
-                <div>
-                    Term and condition
-                </div>
-                <div>
-                    Privacy Policy
-                </div>
-                <div>
-                    Contact addreess (email)
-                </div>
-                <div>
-                    Links
-                </div>            
             </div>
-            <div>
+            {/* <div>
                 <ul>
                     {data.allMdx.nodes.map(item =>
                         <li key={item.id}>
@@ -60,7 +61,7 @@ const Footer = (props: {category: string}) => {
                         </li>
                     )}
                 </ul>
-            </div>
+            </div> */}
 
         </>
     );
