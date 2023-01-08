@@ -13,7 +13,9 @@ const BlogCard = (props: { data : BlogData, index: number }) => {
             <span className={style.excerpt}>
                 {props.data.excerpt}
             </span>
-            <Link to={`/blog/${props.data.frontmatter.slug}`}>More</Link>
+            <Link to={`/blog/${props.data.frontmatter.slug}`}>
+                <span className={style.more}>More</span>
+            </Link>
         </article>
     )
 }
