@@ -87,7 +87,7 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          "G-G-QC161MCRM2",
+          "G-QC161MCRM2",
         ],
         pluginConfig: {
           head: true,
