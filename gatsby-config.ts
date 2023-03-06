@@ -12,7 +12,6 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-mdx-frontmatter",
     "gatsby-plugin-sass",
-    // "gatsby-plugin-google-gtag",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -34,7 +33,22 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'blog',
         path: `${__dirname}/files/blog`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: `${__dirname}/static/data`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        name: `data`,
+        typeName: `Json`,
       },
     },
     {
@@ -95,7 +109,7 @@ const config: GatsbyConfig = {
           exclude: ["/preview/**", "/do-not-track/me/too/"],
         },
       },
-    },  
+    },
   ]
 };
 

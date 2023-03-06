@@ -1,7 +1,6 @@
 import * as React from "react"
-import { HeadFC, Link, PageProps, graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../../components/layout"
-import Blog from "../../components/Blog"
 import { BlogData } from "../../model/blogData"
 
 import * as style from "./blogpost.module.css"
