@@ -56,8 +56,12 @@ const InsurancePage = (props: {data: Data}) => {
                     <div>ทุนประกันรถยนต์</div>
                     <div className={style.cardDetailCol2}>{formatter.format(insur.cover)} บาท</div>
 
-                    <div>ค่าเสียหายส่วนแรก</div>
-                    <div className={style.cardDetailCol2}>{formatter.format(insur.coverDeduct)} บาท</div>
+                    {Number.isInteger(insur.coverDeduct) && 
+                      <>
+                        <div>ค่าเสียหายส่วนแรก</div>
+                        <div className={style.cardDetailCol2}>{formatter.format(insur.coverDeduct)} บาท</div>
+                      </>
+                    }
 
                     <div>น้ำท่วม</div>
                     <div className={style.cardDetailCol2}>{insur.coverFlooding === 'Y' ? 'ครอบคลุม' : 'ไม่ครอบคลุม'}</div>
@@ -69,7 +73,7 @@ const InsurancePage = (props: {data: Data}) => {
                     <div className={style.cardDetailCol2}>{insur.garage}</div>
 
                     <div>จำนวนอู่</div>
-                    <div className={style.cardDetailCol2}>{formatter.format(insur.garageTotal)}</div>
+                    <div className={style.cardDetailCol2}>{formatter.format(insur.garageTotal)} อู่</div>
               
                     <div>ตรวจสภาพรถ</div>
                     <div className={style.cardDetailCol2}>{insur.carCheck === 'N' ? 'ไม่ต้อง' : 'ต้อง'}</div>
