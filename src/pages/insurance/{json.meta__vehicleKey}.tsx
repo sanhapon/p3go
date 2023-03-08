@@ -41,7 +41,7 @@ const formatter = new Intl.NumberFormat('en-US');
 
 const InsurancePage = (props: {data: Data}) => {
   return (
-    <Layout title="home" category={"home"} isHome={true}>
+    <Layout title={`ประกันรถยนต์ ${props.data.json.meta.brand}-${props.data.json.meta.year}`} category="ประกันรถยนต์" isHome={false}>
       <div>
         <h2>ประกันรถยนต์ {props.data.json.meta.brand} {props.data.json.meta.model} {props.data.json.meta.subModel} ปี {props.data.json.meta.year}</h2> 
         <div>

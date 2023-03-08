@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as style from './footer.module.css'
 import FooterTopicLinks from './footerTopicLinks';
+import { Link } from 'gatsby';
 
 const Footer = (props: {title: string}) => {
     return (
@@ -18,7 +19,7 @@ const Footer = (props: {title: string}) => {
                             <li>About us</li>
                         </ul>
                         <span>
-                            Contact address: sanhapon@yahoo.com
+                            <Link to="/insurance/">รวมประกันรถทั้งหมด</Link>
                         </span>
                     </div>
                 </div>
