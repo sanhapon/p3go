@@ -1,6 +1,16 @@
 @value variables: '../../variables.css';
 @value button-1, font-color-2 from variables;
 
+h1 {
+  line-height: 2rem;
+  font-size: 1.4rem;;
+}
+
+h2 {
+  font-size: 1rem;;
+}
+
+
 .card {
     border: solid 0.01rem  rgba(0, 0, 0, 0.15);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;

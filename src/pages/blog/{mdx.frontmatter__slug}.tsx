@@ -17,7 +17,9 @@ const BlogPost = (props: { data : Data, children: any }) => {
         category={props.data.mdx.frontmatter.category}
         isHome={false}>
       <>
-        <h2>{props.data.mdx.frontmatter.title}</h2>
+        <header>
+          <h1 className={style.head}>{props.data.mdx.frontmatter.title}</h1>
+        </header>
 
         <article className={style.content}>
           {props.children}

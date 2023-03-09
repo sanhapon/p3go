@@ -43,14 +43,16 @@ const InsurancePage = (props: {data: Data}) => {
   return (
     <Layout title={`ประกันรถยนต์ ${props.data.json.meta.brand}-${props.data.json.meta.year}`} category="ประกันรถยนต์" isHome={false}>
       <div>
-        <h2>ประกันรถยนต์ {props.data.json.meta.brand} {props.data.json.meta.model} {props.data.json.meta.subModel} ปี {props.data.json.meta.year}</h2> 
+        <header>
+          <h1>ประกันรถยนต์ {props.data.json.meta.brand} {props.data.json.meta.model} {props.data.json.meta.subModel} ปี {props.data.json.meta.year}</h1> 
+        </header>
         <div>
           {props.data.json.insurances.map((insur: any) => {
             return (
               <div className={style.card}>
                   <div className={style.cardHeader}>
                     <div><h4>บริษัท {insur.companyName}</h4></div>
-                    <div className={style.cardHeaderCol2}>ประกันชั้น{' '} {props.data.json.meta.insureLevel}</div>
+                    <div className={style.cardHeaderCol2}><h2>ประกันรถชั้น{' '} {props.data.json.meta.insureLevel}</h2></div>
                   </div>
                   <div className={style.cardDetail}>
                     <div>ทุนประกันรถยนต์</div>
