@@ -1,5 +1,5 @@
 import * as React from "react"
-import { HeadFC } from "gatsby"
+import { HeadFC, Link } from "gatsby"
 import Layout from "../../components/layout"
 import { graphql } from 'gatsby'
 import Seo from "../../components/seo"
@@ -44,8 +44,9 @@ const InsurancePage = (props: {data: Data}) => {
     <Layout title={`ประกันรถยนต์ ${props.data.json.meta.brand}-${props.data.json.meta.year}`} category="ประกันรถยนต์" isHome={false}>
       <div>
         <header>
-          <h1>ประกันรถยนต์ {props.data.json.meta.brand} {props.data.json.meta.model} {props.data.json.meta.subModel} ปี {props.data.json.meta.year}</h1> 
+          <h1>ราคาประกันรถยนต์ สำหรับ {props.data.json.meta.brand} {props.data.json.meta.model} {props.data.json.meta.subModel} ปี {props.data.json.meta.year}</h1> 
         </header>
+        <div className={style.otherLink}><Link to="/insurance">ดูประกันอื่นๆ</Link></div>
         <div>
           {props.data.json.insurances.map((insur: any) => {
             return (
@@ -97,7 +98,7 @@ export default InsurancePage
 export const Head = (props: { data: Data }) => 
   <Seo 
     title={`ประกันรถ ${props.data.json.meta.brand} ${props.data.json.meta.subModel}`}
-    keywords={`ประกันรถ, ${props.data.json.meta.brand}, ${props.data.json.meta.model}, ${props.data.json.meta.subModel}, ปี ${props.data.json.meta.year}`}
+    keywords={`ประกันรถ, ราคาค่าประกัน ${props.data.json.meta.brand}, ${props.data.json.meta.model}, ${props.data.json.meta.subModel}, ปี ${props.data.json.meta.year}`}
     description={`ประกันรถ ${props.data.json.meta.brand} ${props.data.json.meta.model} ${props.data.json.meta.subModel} ปี ${props.data.json.meta.year}`}
     />
 

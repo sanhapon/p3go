@@ -10,6 +10,9 @@ h2 {
   font-size: 1rem;;
 }
 
+.other-link {
+  float: right;
+}
 
 .card {
     border: solid 0.01rem  rgba(0, 0, 0, 0.15);
