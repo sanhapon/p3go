@@ -48,12 +48,12 @@ const InsurancePage = (props: {data: Data}) => {
         </header>
         <div className={style.otherLink}><Link to="/insurance">ดูประกันอื่นๆ</Link></div>
         <div>
-          {props.data.json.insurances.map((insur: any, ind: number) => {
+          {props.data.json.insurances.map((insur: Insurance, ind: number) => {
             return (
               <div key={ind} className={style.card}>
                   <div className={style.cardHeader}>
-                    <div><h4>บริษัท {insur.companyName}</h4></div>
-                    <div className={style.cardHeaderCol2}><h2>ประกันรถชั้น{' '} {props.data.json.meta.insureLevel}</h2></div>
+                    <div><strong>บริษัท {insur.companyName}</strong></div>
+                    <div className={style.cardHeaderCol2}>ประกันรถชั้น{' '} {props.data.json.meta.insureLevel}</div>
                   </div>
                   <div className={style.cardDetail}>
                     <div>ทุนประกันรถยนต์</div>
