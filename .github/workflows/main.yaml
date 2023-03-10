@@ -58,4 +58,10 @@ jobs:
         aws-region: ${{ env.AWS_REGION }}
     
     - name: Deploy
-      run: aws s3 sync public s3://${{ env.AWS_BUCKET }} --content-encoding gzip
+      run: |
+        aws s3 sync public s3://${{ env.AWS_BUCKET }} --exclude '*.js' --exclude '*.css' --exclude '*.html' --exclude '*.svg' &&
+        aws s3 sync public s3://${{ env.AWS_BUCKET }} --exclude '*' --include '*.js' --content-encoding gzip &&
+        aws s3 sync public s3://${{ env.AWS_BUCKET }} --exclude '*' --include '*.css' --content-encoding gzip &&
+        aws s3 sync public s3://${{ env.AWS_BUCKET }} --exclude '*' --include '*.html' --content-encoding gzip &&
+        aws s3 sync public s3://${{ env.AWS_BUCKET }} --exclude '*' --include '*.svg' --content-encoding gzip
+      
