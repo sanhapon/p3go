@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 export default function HTML(props) {
   return (
-    <html {...props.htmlAttributes}>
+    <html {...props.htmlAttributes} lang="th-TH">
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="content-language" content="th"></meta>

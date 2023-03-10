@@ -29,23 +29,23 @@ interface Meta {
 const IndexPage = (props: {data: Data}) => {
   return (
     <Layout title="รวมประกันรถ" category="ประกันรถยนต์" isHome={false}>
-      <ul>
-        <h2>
-          รวบรวม และ เปรียบเทียบราคาค่าประกันรถยนต์ จากบริษัทประกันต่างๆ 
-        </h2>
+      <>
+        <header>
+          <h1>รวบรวม และ เปรียบเทียบราคา ค่าประกันรถยนต์ จากบริษัทประกันต่างๆ</h1>
+        </header>
         <br />
-        {props.data.allJson.nodes.map(node => {
-          console.log(node.meta.vehicleKey)
-          const url = node.meta.vehicleKey.substring(0, 4) + "-" + node.meta.vehicleKey.substring(4, 6) + "-" + node.meta.vehicleKey.substring(6, 8);
-          return (
-            <li>
-              <a href={`/insurance/${url.toLowerCase()}/`}>{node.meta.brand} - {node.meta.model} - {node.meta.subModel} - {node.meta.year}</a>
-            </li>
-          );
-        })}
-        
-      
-      </ul>
+
+        <ul>
+          {props.data.allJson.nodes.map(node => {
+            const url = node.meta.vehicleKey.substring(0, 4) + "-" + node.meta.vehicleKey.substring(4, 6) + "-" + node.meta.vehicleKey.substring(6, 8);
+            return (
+              <li>
+                <a href={`/insurance/${url.toLowerCase()}/`}>{node.meta.brand} - {node.meta.model} - {node.meta.subModel} - {node.meta.year}</a>
+              </li>
+            );
+          })}
+        </ul>
+      </>
     </Layout>
   )
 }
@@ -54,9 +54,9 @@ export default IndexPage
 
 export const Head: HeadFC = () => 
   <Seo 
-    title="ประกันรถ"
-    keywords="ประกันรถ"
-    description="ประกันรถ ทั่วไป"
+    title="ค่าประกันรถยนต์"
+    keywords="ประกันรถ, ค่าประกันรถยนต์, เปรียบเทียบราคา"
+    description="รวบรวม และ เปรียบเทียบราคา ค่าประกันรถยนต์ จากบริษัทประกันต่างๆ "
   />
 
 export const query = graphql`
