@@ -44,13 +44,13 @@ const InsurancePage = (props: {data: Data}) => {
     <Layout title={`ประกันรถยนต์ ${props.data.json.meta.brand}-${props.data.json.meta.year}`} category="ประกันรถยนต์" isHome={false}>
       <div>
         <header>
-          <h1>ราคาประกันรถยนต์ สำหรับ {props.data.json.meta.brand} {props.data.json.meta.model} {props.data.json.meta.subModel} ปี {props.data.json.meta.year}</h1> 
+          <h1>ราคาเบี้ย ประกันรถยนต์ สำหรับ {props.data.json.meta.brand} {props.data.json.meta.model} {props.data.json.meta.subModel} ปี {props.data.json.meta.year}</h1> 
         </header>
         <div className={style.otherLink}><Link to="/insurance">ดูประกันอื่นๆ</Link></div>
         <div>
-          {props.data.json.insurances.map((insur: any) => {
+          {props.data.json.insurances.map((insur: any, ind: number) => {
             return (
-              <div className={style.card}>
+              <div key={ind} className={style.card}>
                   <div className={style.cardHeader}>
                     <div><h4>บริษัท {insur.companyName}</h4></div>
                     <div className={style.cardHeaderCol2}><h2>ประกันรถชั้น{' '} {props.data.json.meta.insureLevel}</h2></div>
@@ -98,8 +98,8 @@ export default InsurancePage
 export const Head = (props: { data: Data }) => 
   <Seo 
     title={`ประกันรถ ${props.data.json.meta.brand} ${props.data.json.meta.subModel}`}
-    keywords={`ประกันรถ, ราคาค่าประกัน ${props.data.json.meta.brand}, ${props.data.json.meta.model}, ${props.data.json.meta.subModel}, ปี ${props.data.json.meta.year}`}
-    description={`ประกันรถ ${props.data.json.meta.brand} ${props.data.json.meta.model} ${props.data.json.meta.subModel} ปี ${props.data.json.meta.year}`}
+    keywords={`ประกันรถ, ประกันออนไลน์, เทียบเบี้ยประกัน,  ชั้น1ราคา, รายชื่อประกัน, อู่ซ่อมรถ, ประกันรถ, เช็คเบี้ย, ราคาประกัน, รถเก่าทำประกัน, ประกันรถยนต์, ชั้น1, ชั้น2, ชั้น3, ชั้น2+, ชั้น3+ ${props.data.json.meta.brand}, ${props.data.json.meta.brand} ${props.data.json.meta.model}, ${props.data.json.meta.subModel}, ปี ${props.data.json.meta.year}`}
+    description={`เทียบเบี้ยประกันเบี้ยประกันรถ ${props.data.json.meta.brand} ${props.data.json.meta.model} ${props.data.json.meta.subModel} ปี ${props.data.json.meta.year}`}
     />
 
 export const query = graphql`
