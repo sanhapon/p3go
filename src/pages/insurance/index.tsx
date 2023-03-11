@@ -13,6 +13,7 @@ interface AllJSON {
 }
 
 interface Node {
+  url: string;
   meta: Meta;
 }
 
@@ -37,10 +38,9 @@ const IndexPage = (props: {data: Data}) => {
 
         <ul>
           {props.data.allJson.nodes.map(node => {
-            const url = node.meta.vehicleKey.substring(0, 4) + "-" + node.meta.vehicleKey.substring(4, 6) + "-" + node.meta.vehicleKey.substring(6, 8);
             return (
               <li>
-                <a href={`/insurance/${node.meta.insureLevel}/${url.toLowerCase()}/`}>{node.meta.brand} - {node.meta.model} - {node.meta.subModel} - {node.meta.year}</a>
+                <a href={node.url}>{node.meta.brand} - {node.meta.model} - {node.meta.subModel} - {node.meta.year}</a>
               </li>
             );
           })}
@@ -63,6 +63,7 @@ export const query = graphql`
   query {
     allJson(sort: {meta: {brand: ASC}}) {
       nodes {
+        url: gatsbyPath(filePath: "/insurance/{json.meta__insureLevel}/{json.meta__vehicleKey}")
         meta {
           brand
           cc
@@ -70,7 +71,6 @@ export const query = graphql`
           model
           subModel
           vehicleKey
-          url
           year
         }
       }
