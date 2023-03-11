@@ -16,6 +16,7 @@ interface AllJSON {
 }
 
 interface AllNode {
+  url: string;
   meta: Meta;
 }
 
@@ -70,11 +71,12 @@ const InsurancePage = (props: {data: Data}) => {
             {props.data.allJson.nodes
               .filter(n=> n.meta.vehicleKey === props.data.json.meta.vehicleKey.replaceAll("-", "") && 
                       n.meta.insureLevel !== props.data.json.meta.insureLevel )
-
-                     
-              .map( n=> {
-                const url = n.meta.vehicleKey.substring(0, 4) + "-" + n.meta.vehicleKey.substring(4, 6) + "-" + n.meta.vehicleKey.substring(6, 8);
-                return <li><Link to={`/insurance/${n.meta.insureLevel}/${url.toLocaleLowerCase()}`}>ชั้น{n.meta.insureLevel}</Link></li>;
+              .map(n => {
+                return (
+                  <li>
+                    <Link to={n.url}>ชั้น{n.meta.insureLevel}</Link>
+                  </li>
+                );
             })}
 
             <li><Link to="/insurance">ดูประกันอื่นๆ</Link></li>
@@ -146,6 +148,7 @@ export const query = graphql`
     query MyQuery($id: String) {
       allJson {
         nodes {
+          url: gatsbyPath(filePath: "/insurance/{json.meta__insureLevel}/{json.meta__vehicleKey}")
           meta {
             year
             insureLevel
