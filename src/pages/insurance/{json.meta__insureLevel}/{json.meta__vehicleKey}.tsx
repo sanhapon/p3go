@@ -1,13 +1,22 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import Layout from "../../components/layout"
+import Layout from "../../../components/layout"
 import { graphql } from 'gatsby'
-import Seo from "../../components/seo"
+import Seo from "../../../components/seo"
 
 import * as style from './json.meta.vehicle.module.css';
 
 interface Data {
+  allJson: AllJSON;
   json: JSON;
+}
+
+interface AllJSON {
+  nodes: AllNode[];
+}
+
+interface AllNode {
+  meta: Meta;
 }
 
 interface JSON {
@@ -55,13 +64,28 @@ const InsurancePage = (props: {data: Data}) => {
         <header>
           <h1>ราคาเบี้ย ประกันรถยนต์ สำหรับ {props.data.json.meta.brand} {props.data.json.meta.model} {props.data.json.meta.subModel} ปี {props.data.json.meta.year}</h1> 
         </header>
-        <div className={style.otherLink}><Link to="/insurance">ดูประกันอื่นๆ</Link></div>
-        <div>
+        <div className={style.otherLinks}>
+          <span>เปลี่ยนประกันรถ: </span>
+          <ul>
+            {props.data.allJson.nodes
+              .filter(n=> n.meta.vehicleKey === props.data.json.meta.vehicleKey.replaceAll("-", "") && 
+                      n.meta.insureLevel !== props.data.json.meta.insureLevel )
+
+                     
+              .map( n=> {
+                const url = n.meta.vehicleKey.substring(0, 4) + "-" + n.meta.vehicleKey.substring(4, 6) + "-" + n.meta.vehicleKey.substring(6, 8);
+                return <li><Link to={`/insurance/${n.meta.insureLevel}/${url.toLocaleLowerCase()}`}>ชั้น{n.meta.insureLevel}</Link></li>;
+            })}
+
+            <li><Link to="/insurance">ดูประกันอื่นๆ</Link></li>
+          </ul>
+        </div>
+        <div className={style.cardPanel}>
           {props.data.json.insurances.map((insur: Insurance, index: number) => {
             return (
               <div key={index} className={style.card}  onClick={() => toggleDetails(index)}>
                   <div className={style.cardHeader}>
-                    <div className={style.cardHeaderCol1}><strong>บริษัท {insur.companyName}</strong></div>
+                    <div className={style.cardHeaderCol1}>บริษัท {insur.companyName}</div>
                     <div className={style.cardHeaderCol2}>ประกันชั้น{' '} {props.data.json.meta.insureLevel}</div>
                   </div>
                   <div className={style.cardHeader}>
@@ -120,6 +144,15 @@ export const Head = (props: { data: Data }) =>
 
 export const query = graphql`
     query MyQuery($id: String) {
+      allJson {
+        nodes {
+          meta {
+            year
+            insureLevel
+            vehicleKey
+          }
+        }
+      }
       json(id: {eq: $id}) {
         insurances {
           companyName

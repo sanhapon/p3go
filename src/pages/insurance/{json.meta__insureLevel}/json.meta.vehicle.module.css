@@ -1,4 +1,4 @@
-@value variables: '../../variables.css';
+@value variables: '../../../variables.css';
 @value button-1, font-color-2 from variables;
 
 h1 {
@@ -6,22 +6,59 @@ h1 {
   font-size: 1.4rem;;
 }
 
-.other-link {
-  float: right;
+.other-links {
+  overflow: hidden;
+  margin: 30px 0 20px 0;
+}
+.other-links span {
+  float: left;
+}
+
+.other-links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.other-links ul li {
+  float: left;
+  padding: 0 10px 0 30px;
+  cursor: pointer;
+}
+
+.card-panel {
+  width: 100%;
 }
 
 .card {
-    border: solid 0.01rem  rgba(0, 0, 0, 0.15);
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-    margin-top: 1.8rem;
-    cursor: pointer;
+  border: solid 0.01rem  rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  width: 70%;
 }
+
+@media only screen and (max-width: 600px) { 
+  .card-panel {
+      width: 100%;
+  }
+  .card {
+    width: 100%;
+    
+  }
+}
+
 .card-header {
     margin: 0.5rem 0.5rem 0 0.5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-basis: 50%;
+}
+
+.card-header-col1 {
+  text-align: left;
 }
 
 .card-header-col2 {
@@ -32,7 +69,6 @@ h1 {
   width: 95%;
   color: gray;
 }
-
 
 .card-detail {
     display: flex;

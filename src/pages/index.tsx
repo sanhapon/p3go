@@ -58,18 +58,3 @@ export const query = graphql`
     }
   }
 `
-
-// allJson {
-//   edges {
-//     node {
-//       id
-//       meta {
-//         vehicleKey
-//         brand
-//         model
-//         subModel
-//         insureLevel
-//       }
-//     }
-//   }
-// }
