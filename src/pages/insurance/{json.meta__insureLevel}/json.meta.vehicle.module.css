@@ -39,13 +39,16 @@ h1 {
   width: 70%;
 }
 
+.card-selected {
+  background-color: #f0f0f0;
+}
+
 @media only screen and (max-width: 600px) { 
   .card-panel {
       width: 100%;
   }
   .card {
     width: 100%;
-    
   }
 }
 

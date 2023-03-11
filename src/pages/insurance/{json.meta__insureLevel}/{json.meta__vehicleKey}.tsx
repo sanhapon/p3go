@@ -86,6 +86,7 @@ const InsurancePage = (props: {data: Data}) => {
           {props.data.json.insurances.map((insur: Insurance, index: number) => {
             return (
               <div key={index} className={style.card}  onClick={() => toggleDetails(index)}>
+                  <div className={detailsVisible[index] ? style.cardSelected : ''}>
                   <div className={style.cardHeader}>
                     <div className={style.cardHeaderCol1}>บริษัท {insur.companyName}</div>
                     <div className={style.cardHeaderCol2}>ประกันชั้น{' '} {props.data.json.meta.insureLevel}</div>
@@ -93,6 +94,7 @@ const InsurancePage = (props: {data: Data}) => {
                   <div className={style.cardHeader}>
                     <div className={style.cardHeaderCol1}></div>
                     <div className={style.cardHeaderCol2}>เบี้ยประกัน {formatter.format(insur.netAmount)} บาท</div>
+                  </div>
                   </div>
 
                   {detailsVisible[index] && 
