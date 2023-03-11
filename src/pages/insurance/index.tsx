@@ -24,7 +24,7 @@ interface Meta {
   brand: string;
   model: string;
   subModel: string;
-  insureLevel: number;
+  insureLevel: string;
 }
 
 const IndexPage = (props: {data: Data}) => {

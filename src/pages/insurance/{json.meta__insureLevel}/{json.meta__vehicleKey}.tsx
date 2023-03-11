@@ -31,7 +31,7 @@ interface Meta {
   brand: string;
   model: string;
   subModel: string;
-  insureLevel: number;
+  insureLevel: string;
 }
 
 interface Insurance {
@@ -74,7 +74,7 @@ const InsurancePage = (props: {data: Data}) => {
               .map(n => {
                 return (
                   <li>
-                    <Link to={n.url}>ชั้น{n.meta.insureLevel}</Link>
+                    <Link to={n.url}>ชั้น {n.meta.insureLevel.replace("plus", "+")}</Link>
                   </li>
                 );
             })}

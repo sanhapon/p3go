@@ -5,7 +5,7 @@
         "model": "CITY",
         "cc": 1500,
         "subModel": "S i-VTEC",
-        "insureLevel": 1,
+        "insureLevel":"1",
         "vehicleKey": "HOND18AH",
         "url": "https://surekrub.com/api/motor/search?insureLevel=1&vehicleKey=HOND18AH&slug=HOND-CITY-2018&year=2018&makeCode=HOND&familyCode=CITY&cc=1.5&carUsage=110&coverMin=280000&coverMax=420000"
     },
