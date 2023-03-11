@@ -1,5 +1,5 @@
 import * as React from "react"
-import { HeadFC, Link } from "gatsby"
+import { Link } from "gatsby"
 import Layout from "../../components/layout"
 import { graphql } from 'gatsby'
 import Seo from "../../components/seo"
@@ -40,6 +40,15 @@ interface Insurance {
 const formatter = new Intl.NumberFormat('en-US');
 
 const InsurancePage = (props: {data: Data}) => {
+  const [detailsVisible, setDetailsVisible] = React.useState(props.data.json.insurances.map(() => false))
+
+  const toggleDetails = (index: number) => {
+    setDetailsVisible(prevState => {
+      const newState = [...prevState]
+      newState[index] = !newState[index]
+      return newState
+    })
+  }
   return (
     <Layout title={`ประกันรถยนต์ ${props.data.json.meta.brand}-${props.data.json.meta.year}`} category="ประกันรถยนต์" isHome={false}>
       <div>
@@ -48,42 +57,49 @@ const InsurancePage = (props: {data: Data}) => {
         </header>
         <div className={style.otherLink}><Link to="/insurance">ดูประกันอื่นๆ</Link></div>
         <div>
-          {props.data.json.insurances.map((insur: Insurance, ind: number) => {
+          {props.data.json.insurances.map((insur: Insurance, index: number) => {
             return (
-              <div key={ind} className={style.card}>
+              <div key={index} className={style.card}  onClick={() => toggleDetails(index)}>
                   <div className={style.cardHeader}>
-                    <div><strong>บริษัท {insur.companyName}</strong></div>
-                    <div className={style.cardHeaderCol2}>ประกันรถชั้น{' '} {props.data.json.meta.insureLevel}</div>
+                    <div className={style.cardHeaderCol1}><strong>บริษัท {insur.companyName}</strong></div>
+                    <div className={style.cardHeaderCol2}>ประกันชั้น{' '} {props.data.json.meta.insureLevel}</div>
                   </div>
-                  <div className={style.cardDetail}>
-                    <div>ทุนประกันรถยนต์</div>
-                    <div className={style.cardDetailCol2}>{formatter.format(insur.cover)} บาท</div>
+                  <div className={style.cardHeader}>
+                    <div className={style.cardHeaderCol1}></div>
+                    <div className={style.cardHeaderCol2}>เบี้ยประกัน {formatter.format(insur.netAmount)} บาท</div>
+                  </div>
 
-                    {Number.isInteger(insur.coverDeduct) && 
-                      <>
-                        <div>ค่าเสียหายส่วนแรก</div>
-                        <div className={style.cardDetailCol2}>{formatter.format(insur.coverDeduct)} บาท</div>
-                      </>
-                    }
+                  {detailsVisible[index] && 
+                    <>
+                      <hr className={style.separatorLine} />
+                      <div className={style.cardDetail}>
+                        <div className={style.cardHeaderCol1}>ทุนประกันรถยนต์</div>
+                        <div className={style.cardDetailCol2}>{formatter.format(insur.cover)} บาท</div>
 
-                    <div>น้ำท่วม</div>
-                    <div className={style.cardDetailCol2}>{insur.coverFlooding === 'Y' ? 'ครอบคลุม' : 'ไม่ครอบคลุม'}</div>
+                        {Number.isInteger(insur.coverDeduct) && 
+                          <>
+                            <div className={style.cardHeaderCol1}>ค่าเสียหายส่วนแรก</div>
+                            <div className={style.cardDetailCol2}>{formatter.format(insur.coverDeduct)} บาท</div>
+                          </>
+                        }
 
-                    <div>ทรัพย์สินบุคคลภายนอก</div>
-                    <div className={style.cardDetailCol2}>{formatter.format(insur.cover3RDAsset)} บาท</div>
+                        <div className={style.cardHeaderCol1}>น้ำท่วม</div>
+                        <div className={style.cardDetailCol2}>{insur.coverFlooding === 'Y' ? 'ครอบคลุม' : 'ไม่ครอบคลุม'}</div>
 
-                    <div>ประเภทการซ่อม</div>
-                    <div className={style.cardDetailCol2}>{insur.garage}</div>
+                        <div className={style.cardHeaderCol1}>ทรัพย์สินบุคคลภายนอก</div>
+                        <div className={style.cardDetailCol2}>{formatter.format(insur.cover3RDAsset)} บาท</div>
 
-                    <div>จำนวนอู่</div>
-                    <div className={style.cardDetailCol2}>{formatter.format(insur.garageTotal)} อู่</div>
-              
-                    <div>ตรวจสภาพรถ</div>
-                    <div className={style.cardDetailCol2}>{insur.carCheck === 'N' ? 'ไม่ต้อง' : 'ต้อง'}</div>
-              
-                    <div><strong>ราคา</strong></div>
-                    <div className={style.cardDetailCol2}>{formatter.format(insur.netAmount)} บาท</div>
-                </div>
+                        <div className={style.cardHeaderCol1}>ประเภทการซ่อม</div>
+                        <div className={style.cardDetailCol2}>{insur.garage}</div>
+
+                        <div className={style.cardHeaderCol1}>จำนวนอู่</div>
+                        <div className={style.cardDetailCol2}>{formatter.format(insur.garageTotal)} อู่</div>
+                  
+                        <div className={style.cardHeaderCol1}>ตรวจสภาพรถ</div>
+                        <div className={style.cardDetailCol2}>{insur.carCheck === 'N' ? 'ไม่ต้อง' : 'ต้อง'}</div>
+                      </div>
+                  </>
+                }
               </div>
               )
           })}

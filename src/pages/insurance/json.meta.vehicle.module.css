@@ -14,32 +14,42 @@ h1 {
     border: solid 0.01rem  rgba(0, 0, 0, 0.15);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     margin-top: 1.8rem;
+    cursor: pointer;
 }
 .card-header {
-    margin: 0.7rem;
+    margin: 0.5rem 0.5rem 0 0.5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 0.8rem;
-    padding-bottom: 1.5rem;
-    border-bottom: solid 0.01rem gray;
+    flex-basis: 50%;
 }
 
 .card-header-col2 {
-    text-align: right;
+  text-align: right;
 }
-  
+
+.separator-line {
+  width: 95%;
+  color: gray;
+}
+
+
 .card-detail {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     margin: 0.7rem;
+    padding-right: 10px;
+    padding-left: 10px;
 }
   
 .card-detail > div {
   flex-basis: 50%;
+}
+
+.card-detail-col1 {
+  margin-left: 10px;
 }
 
 .card-detail-col2 {
