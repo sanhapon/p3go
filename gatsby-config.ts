@@ -16,6 +16,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-mdx",
+    "gatsby-plugin-preact",
     {
       resolve: "gatsby-plugin-excerpts",
       options: {
