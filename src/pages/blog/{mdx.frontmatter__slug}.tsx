@@ -40,6 +40,8 @@ export const query = graphql`
         title
         date(formatString: "MMMM D, YYYY")
         category
+        keywords
+        description
       }
       body
     }
