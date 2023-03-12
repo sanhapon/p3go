@@ -66,7 +66,7 @@ const InsurancePage = (props: {data: Data}) => {
           <h1>ราคาเบี้ย ประกันรถยนต์ สำหรับ {props.data.json.meta.brand} {props.data.json.meta.model} {props.data.json.meta.subModel} ปี {props.data.json.meta.year}</h1> 
         </header>
         <div className={style.otherLinks}>
-          <span>เปลี่ยนประกันรถ: </span>
+          <span>เลือกประเภทประกัน: </span>
           <ul>
             {props.data.allJson.nodes
               .filter(n=> n.meta.vehicleKey === props.data.json.meta.vehicleKey.replaceAll("-", "") && 
@@ -89,7 +89,7 @@ const InsurancePage = (props: {data: Data}) => {
                   <div className={detailsVisible[index] ? style.cardSelected : ''}>
                   <div className={style.cardHeader}>
                     <div className={style.cardHeaderCol1}>บริษัท {insur.companyName}</div>
-                    <div className={style.cardHeaderCol2}>ประกันชั้น{' '} {props.data.json.meta.insureLevel}</div>
+                    <div className={style.cardHeaderCol2}>ประกันชั้น{' '} {props.data.json.meta.insureLevel.replace("plus", "+")}</div>
                   </div>
                   <div className={style.cardHeader}>
                     <div className={style.cardHeaderCol1}></div>
