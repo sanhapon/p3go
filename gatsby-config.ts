@@ -12,10 +12,20 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-mdx-frontmatter",
     "gatsby-plugin-sass",
-    "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-mdx",
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '.',
+        excludes: [
+          `/404/`,
+          `/privacy`,
+          `/term-condition/`,
+        ],
+      },
+    },
     {
       resolve: "gatsby-plugin-excerpts",
       options: {

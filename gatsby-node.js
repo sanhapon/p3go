@@ -23,5 +23,9 @@ exports.onPostBuild = () =>
       reject(new Error('onPostBuild: Could not compress the files:'));
     }
 
+    if (fs.existsSync('./public/sitemap-index.xml')) {
+      fs.renameSync('./public/sitemap-index.xml', './public/sitemap.xml');
+    }
+    
     resolve();
   });

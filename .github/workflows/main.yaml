@@ -64,4 +64,3 @@ jobs:
         aws s3 sync public s3://${{ env.AWS_BUCKET }} --exclude '*' --include '*.css' --content-encoding gzip &&
         aws s3 sync public s3://${{ env.AWS_BUCKET }} --exclude '*' --include '*.html' --content-encoding gzip &&
         aws s3 sync public s3://${{ env.AWS_BUCKET }} --exclude '*' --include '*.svg' --content-encoding gzip
-      
