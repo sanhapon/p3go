@@ -14,6 +14,20 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        sitemap: 'http://www.p3go.com/sitemap.xml',
+        env: {
+          development: {
+            policy: [{userAgent: '*', disallow: ['/']}]
+          },
+          production: {
+            policy: [{userAgent: '*', allow: '/'}]
+          }
+        }
+      }
+    },
     "gatsby-plugin-mdx",
     {
       resolve: 'gatsby-plugin-sitemap',

@@ -25,6 +25,7 @@
     "gatsby-plugin-mdx": "^5.3.1",
     "gatsby-plugin-mdx-frontmatter": "^0.0.4",
     "gatsby-plugin-netlify": "^5.1.0",
+    "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sass": "^6.3.1",
     "gatsby-plugin-sharp": "^5.3.2",
     "gatsby-plugin-sitemap": "^6.7.0",
