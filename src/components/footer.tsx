@@ -18,9 +18,9 @@ const Footer = (props: {title: string}) => {
                             <li>Privacy Policy</li>
                             <li>About us</li>
                         </ul>
-                        <span>
+<!--                         <span>
                             <Link to="/insurance/">รวมประกันรถทั้งหมด</Link>
-                        </span>
+                        </span> -->
                     </div>
                 </div>
             </div>
