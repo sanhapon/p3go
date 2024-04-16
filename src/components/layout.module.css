@@ -8,6 +8,7 @@
 .container {
     margin: 0 auto;
     margin-top: 1.5rem;
+    /* background-color: #FEFEFE; */
 }
 
 .container-home {
@@ -15,7 +16,7 @@
 }
 
 .container-blog {
-    width: 50%;
+    width: 60%;
 }
 
 .content {
