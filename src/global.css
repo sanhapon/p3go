@@ -27,22 +27,16 @@ time, mark, audio, video {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body, div, span, applet, object, iframe,
-p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-caption, table, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html {
   font-family: 'Sarabun', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 16px;
+  
+}
+
+@media (max-width: 858px) {
+  html p {
+    text-align: justify;   
+  }
 }
 
 body {
@@ -62,10 +56,18 @@ ul {
 }
 
 p {
-  margin: 40px 0;
+  margin: 20px 0 20px 0;
 }
 
-figcaption {
-  text-align: center;
-  font-weight: 600;
+figure {
+  margin-bottom: 20px;
+
+  img {
+    width: 100%;
+  }
+
+  figcaption {
+    text-align: center;
+    font-weight: 600; 
+  }
 }
