@@ -26,7 +26,7 @@ const BlogPost = (props: { data : Data, children: any }) => {
         </article>
 
         <Link to='/'>
-            <span className={style.backHome}>ไปหน้าแรก</span>
+            <span className={style.backHome}>Back to home</span>
         </Link>
       </>
     </Layout>

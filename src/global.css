@@ -60,3 +60,12 @@ img {
 ul {
     margin-left: 20px;
 }
+
+p {
+  margin: 40px 0;
+}
+
+figcaption {
+  text-align: center;
+  font-weight: 600;
+}
