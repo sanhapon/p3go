@@ -17,7 +17,7 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        sitemap: 'http://www.p3go.com/sitemap.xml',
+        sitemap: 'https://www.p3go.com/sitemap.xml',
         env: {
           development: {
             policy: [{userAgent: '*', disallow: ['/']}]
