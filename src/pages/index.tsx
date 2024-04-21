@@ -35,9 +35,9 @@ export default IndexPage
 
 export const Head: HeadFC = () => 
   <Seo 
-    title="Home Page"
-    keywords="รถยนตร์, รถไฟฟ้า"
-    description="เว็บเรารวบรวม เรื่องต่างๆ ที่น่าสนใจ เกียวกับรถยนตร์และรถไฟฟ้า เพื่อเป็นประโยชน์กับ รถรักรถทั่วไป"
+    title="p3go.com"
+    keywords="Travel, travelling story, faviorite place"
+    description="Embark on a journey of discovery with our travel blog, where adventure awaits at every turn. From hidden gems to iconic landmarks, explore the world's most captivating destinations through immersive stories, insider tips, and expert guides. Get inspired, plan your next adventure, and make unforgettable memories with us."
   />
 
 export const query = graphql`
