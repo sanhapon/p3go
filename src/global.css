@@ -64,3 +64,8 @@ figcaption {
   text-align: center;
   font-weight: 400; 
 }
+
+video {
+  display: block;
+  margin: 0 auto;
+}
