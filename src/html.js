@@ -3,10 +3,10 @@ import PropTypes from "prop-types"
 
 export default function HTML(props) {
   return (
-    <html {...props.htmlAttributes} lang="th">
+    <html {...props.htmlAttributes} lang="en">
       <head>
         <meta charSet="utf-8" />
-        <meta httpEquiv="content-language" content="th"></meta>
+        <meta httpEquiv="content-language" content="en"></meta>
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
           name="viewport"
