@@ -61,13 +61,13 @@ const config: GatsbyConfig = {
         path: `${__dirname}/files/blog`,
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'data',
-        path: `${__dirname}/static/data`,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     name: 'data',
+    //     path: `${__dirname}/static/data`,
+    //   },
+    // },
     {
       resolve: `gatsby-transformer-json`,
       options: {
