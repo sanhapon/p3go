@@ -14,6 +14,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-mdx",
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
@@ -28,11 +29,11 @@ const config: GatsbyConfig = {
         }
       }
     },
-    "gatsby-plugin-mdx",
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         output: '.',
+        resolveSiteUrl: () => "https://www.p3go.com",
         excludes: [
           `/404/`,
           `/privacy`,
