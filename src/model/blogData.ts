@@ -7,6 +7,7 @@ export interface Frontmatter {
     keywords?: string,
     description?: string,
     mainPicture?: string,
+    dateModifiedDate?: string,
 }
 export interface BlogData {
     id: string,

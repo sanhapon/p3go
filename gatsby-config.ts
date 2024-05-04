@@ -14,6 +14,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-mdx",
     {
       resolve: 'gatsby-plugin-robots-txt',

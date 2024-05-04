@@ -1,7 +1,8 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../../components/layout"
-import { BlogData } from "../../model/blogData"
+import { BlogData, Frontmatter } from "../../model/blogData"
+import { Helmet } from 'react-helmet'
 
 import * as style from "./blogpost.module.css"
 import Seo from "../../components/seo"
@@ -17,10 +18,16 @@ const BlogPost = (props: { data : Data, children: any }) => {
         category={props.data.mdx.frontmatter.category}
         isHome={false}>
       <>
-        <header>
-          <h1 className={style.head}>{props.data.mdx.frontmatter.title}</h1>
-        </header>
+        <h1 className={style.head}>{props.data.mdx.frontmatter.title}</h1>
+        <span className={style.lastupdate}>Last update: 
+            {props.data.mdx.frontmatter.dateModifiedDate ? 
+              props.data.mdx.frontmatter.dateModifiedDate : 
+              props.data.mdx.frontmatter.date
+            }
+        </span>
 
+        {getHemlet(props.data.mdx.frontmatter)}
+        
         <article className={style.content}>
           {props.children}
         </article>
@@ -33,15 +40,35 @@ const BlogPost = (props: { data : Data, children: any }) => {
   )
 }
 
+const getHemlet = (frontmatter: Frontmatter) => {
+  return (
+    <Helmet>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": "${frontmatter.title}", 
+              "image": "${frontmatter.mainPicture}",
+              "datePublished": "${frontmatter.date}",
+              ${frontmatter.dateModifiedDate ? `"dateModified": "${frontmatter.dateModifiedDate}",` : ''} 
+            }
+          `}
+        </script>
+      </Helmet>
+  )
+}
 export const query = graphql`
   query MyQuery($id: String) {
     mdx(id: { eq: $id }) {
       frontmatter {
         title
-        date(formatString: "MMMM D, YYYY")
+        date(formatString: "YYYY-MM-DD")
+        dateModifiedDate(formatString: "YYYY-MM-DD")
         category
         keywords
         description
+        mainPicture
       }
       body
     }

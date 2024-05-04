@@ -3,6 +3,10 @@
     font-size: 1.4rem;;
 }
   
+.lastupdate {
+    font-size: smaller;
+}
+
 .content {
     margin-top: 25px;
 }
