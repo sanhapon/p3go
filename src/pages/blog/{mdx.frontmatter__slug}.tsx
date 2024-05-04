@@ -50,8 +50,8 @@ const getHemlet = (frontmatter: Frontmatter) => {
               "@type": "Article",
               "headline": "${frontmatter.title}", 
               "image": "${frontmatter.mainPicture}",
-              "datePublished": "${frontmatter.date}",
-              ${frontmatter.dateModifiedDate ? `"dateModified": "${frontmatter.dateModifiedDate}",` : ''} 
+              "datePublished": "${frontmatter.date}"
+              ${frontmatter.dateModifiedDate ? `,"dateModified": "${frontmatter.dateModifiedDate}"` : ''} 
             }
           `}
         </script>
