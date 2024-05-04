@@ -18,9 +18,7 @@ const Layout = (
             </div>
             <div className={containerClassName}>
                 <div className={style.content}>
-                    <main>
-                        {props.children}
-                    </main>
+                    {props.children}
                 </div>
             </div>
             <Footer title={props.title}/>
